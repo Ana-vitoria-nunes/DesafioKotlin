@@ -1,4 +1,31 @@
+import java.util.concurrent.TimeUnit
 fun main() {
-    println("Bem vindo ao nosso FastFood")
-    println("Oque deseja comprar: 1-Lanche  2-Bebida")
+    val carrinho = Carrinho()
+    while (true) {
+        try {
+            println()
+            println("=== MENU INICIAL ===")
+            println("1. Lanche")
+            println("2. Bebida")
+            println("Escolha a opção desejada: ")
+            val opcao = readln().toInt()
+
+            when (opcao) {
+                1 -> {
+                    carrinho.exibirMenuLanches()
+                    carrinho.exibirCarrinho()
+                    carrinho.exibirOpcoesFinais()
+                }
+                2 -> {
+                    carrinho.exibirMenuBebidas()
+                    carrinho.exibirCarrinho()
+                    carrinho.exibirOpcoesFinais()
+                }
+                else -> println("Opção inválida.")
+            }
+            TimeUnit.SECONDS.sleep(5)
+        } catch (e: NumberFormatException) {
+            println("Formato inválido, para escolher o item, você deve informar o número dele.")
+        }
+    }
 }
