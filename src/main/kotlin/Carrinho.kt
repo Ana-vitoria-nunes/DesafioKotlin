@@ -262,7 +262,6 @@ class Carrinho {
         when (opcao) {
             1 -> {
                 println("=== ADICIONAR ADICIONAIS ===")
-                println("Promoção:Hoje a Delícia Burger está comemorando 1 ano de lançamento!\n Por esse motivo adicional grátis para cada hambúrguer comprado!")
                 println("Adicionais disponíveis:")
                 val adicionais = mutableMapOf<String, Double>()
                 adicionais["Milho"] = 0.00

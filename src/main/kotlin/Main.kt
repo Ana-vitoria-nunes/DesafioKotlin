@@ -1,9 +1,11 @@
 import java.util.concurrent.TimeUnit
 fun main() {
     val carrinho = Carrinho()
-    println()
-    println("=====Bem vindo a Delícias Burger=====")
     while (true) {
+    println()
+    println("=====Bem vindo a Delícia Burger=====")
+    println("Hoje a Delícia Burger está comemorando 1 ano de lançamento!" +
+            "\nPor esse motivo todos os adicionais estão saindo como brinde para nossos clientes!")
         try {
             println()
             println("===== MENU INICIAL =====")
