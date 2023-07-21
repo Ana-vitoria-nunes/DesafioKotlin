@@ -1,17 +1,39 @@
-# Sistema de Pedidos de Lanches
+# Delícia Burger - Sistema de Lanchonete
 
-Este é um projeto de exemplo em Kotlin que implementa um sistema de pedidos de lanches. O programa permite que os clientes escolham lanches e bebidas a partir de um menu, adicionem ou removam ingredientes, visualizem o carrinho de compras como uma nota fiscal e finalizem o pedido com diferentes formas de pagamento.
+Bem-vindo ao Delícia Burger! Este é um sistema de lanchonete desenvolvido em Kotlin que permite aos clientes escolherem lanches e bebidas disponíveis, adicioná-los ao carrinho, editar itens e finalizar o pedido.
 
-## Funcionalidades
+## Visão Geral
 
-- Exibir o menu de lanches e bebidas para que o cliente possa fazer suas escolhas.
-- Permitir ao cliente adicionar ou remover ingredientes de um item no carrinho.
-- Visualizar o carrinho de compras como uma nota fiscal, com detalhes dos itens e valores.
-- Finalizar o pedido, escolhendo a forma de pagamento (cartão de crédito, cartão de débito, vale refeição ou dinheiro).
+O Delícia Burger é um sistema de lanchonete simples, mas eficiente, que permite aos usuários interagirem com um menu de lanches e bebidas. Os clientes podem adicionar hambúrgueres e bebidas ao carrinho e, para comemorar 1 ano de lançamento, todos os adicionais estão sendo oferecidos gratuitamente para cada hambúrguer comprado. Após selecionar os itens desejados, os clientes podem editar ou remover itens do carrinho e finalizar o pedido escolhendo uma forma de pagamento.
 
-## Observações
+## Como Executar
 
-- O projeto foi desenvolvido como um exemplo básico de um sistema de pedidos de lanches.
-- As opções de lanches e bebidas são limitadas ao que foi definido no código, mas você pode facilmente adicionar mais opções no menu.
-- Os preços dos lanches e bebidas são fixos no código, mas podem ser ajustados conforme necessário.
-- O programa não possui persistência de dados, ou seja, os pedidos são perdidos ao encerrar o programa.
+Para executar o Delícia Burger, siga as instruções abaixo:
+
+### Passos para Execução
+
+1. Clone o repositório do Delícia Burger para o seu computador ou baixe-o como um arquivo ZIP.
+
+2. Abra o projeto no IntelliJ IDEA (ou qualquer outra IDE que suporte Kotlin).
+
+3. Localize o arquivo `main.kt` e execute a função `main()`.
+
+4. O programa será iniciado e apresentará um menu inicial com as opções de "Lanche" e "Bebida".
+
+5. Escolha a opção desejada digitando o número correspondente e siga as instruções no console para fazer os pedidos.
+
+6. Aproveite a promoção especial de 1 ano de lançamento, com adicionais gratuitos para cada hambúrguer comprado!
+
+## Recursos
+
+- Adição de hambúrgueres e bebidas ao carrinho: Os clientes podem escolher entre uma variedade de hambúrgueres e bebidas disponíveis no menu.
+
+- Edição de itens no carrinho: Os clientes têm a opção de adicionar ou remover ingredientes dos hambúrgueres.
+
+- Remoção de itens do carrinho: Caso o cliente mude de ideia, é possível remover itens indesejados do carrinho.
+
+- Finalização do pedido com opções de pagamento: Após escolher os itens desejados, o cliente pode finalizar o pedido e selecionar uma forma de pagamento (cartão de crédito, cartão de débito, vale refeição ou dinheiro).
+
+
+Esperamos que você tenha uma ótima experiência com o Delícia Burger!
+
