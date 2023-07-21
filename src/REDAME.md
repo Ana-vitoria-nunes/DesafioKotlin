@@ -37,3 +37,9 @@ Para executar o Delícia Burger, siga as instruções abaixo:
 
 Esperamos que você tenha uma ótima experiência com o Delícia Burger!
 
+
+### **Pessoa Autora**
+Ana Vitoria Nunes Dos SAntos
+* [GitHub](https://github.com/Ana-vitoria-nunes)
+* [Linkedin](https://www.linkedin.com/in/ana-vitoria-nunes-dos-santos-1768b9265/)
+
