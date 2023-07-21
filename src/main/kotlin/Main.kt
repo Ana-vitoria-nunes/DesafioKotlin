@@ -21,9 +21,11 @@ fun main() {
                     carrinho.exibirCarrinho()
                     carrinho.exibirOpcoesFinais()
                 }
-                else -> println("Opção inválida.")
+                else -> {
+                    println("Opção inválida Main.")
+                }
             }
-            TimeUnit.SECONDS.sleep(5)
+            TimeUnit.SECONDS.sleep(2)
         } catch (e: NumberFormatException) {
             println("Formato inválido, para escolher o item, você deve informar o número dele.")
         }
