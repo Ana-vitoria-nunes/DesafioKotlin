@@ -262,11 +262,15 @@ class Carrinho {
         when (opcao) {
             1 -> {
                 println("=== ADICIONAR ADICIONAIS ===")
+                println("Promoção:Hoje a Delícia Burger está comemorando 1 ano de lançamento!\n Por esse motivo adicional grátis para cada hambúrguer comprado!")
                 println("Adicionais disponíveis:")
                 val adicionais = mutableMapOf<String, Double>()
-                adicionais["Bacon"] = 2.00
-                adicionais["Ovo"] = 1.50
-                adicionais["Queijo Extra"] = 1.00
+                adicionais["Milho"] = 0.00
+                adicionais["Batata palha"] = 0.00
+                adicionais["ovo"] = 0.00
+                adicionais["Bacon"] = 0.00
+                adicionais["Picles"] = 0.00
+                adicionais["Cebola Caramelizada"] = 0.00
                 var cont = 1
                 for ((chave, valor) in adicionais) {
                     println("${cont}. $chave - R$ ${String.format("%.2f", valor)}")
