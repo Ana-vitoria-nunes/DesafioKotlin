@@ -18,16 +18,7 @@ class Carrinho {
             when (adicionar) {
                 1 -> {
                     val quant =readIntInput("Quantos X-burger você deseja:")
-                    val descricao = listOf(
-                        "Pão com gergelim",
-                        "Hambúrguer de carne",
-                        "Queijo cheddar",
-                        "Bacon",
-                        "Alface",
-                        "Tomate",
-                        "Cebola",
-                        "Molho especial"
-                    )
+                    val descricao = listOf("Pão com gergelim", "Hambúrguer de carne", "Queijo cheddar", "Bacon", "Alface", "Tomate", "Cebola", "Molho especial")
                     for (i in 1..quant) {
                         val item = ItemCarrinho("X-burger", 1, 10.00, descricao)
                         val codigo = Random.nextInt(100, 199)
@@ -35,19 +26,9 @@ class Carrinho {
                     }
                     break
                 }
-
                 2 -> {
                     val quant = readIntInput("Quantos X-salada você deseja:")
-                    val descricao = listOf(
-                        "Pão com gergelim",
-                        "Hambúrguer de carne",
-                        "Queijo prato",
-                        "Alface",
-                        "Tomate",
-                        "Cebola",
-                        "Ketchup",
-                        "Maionese"
-                    )
+                    val descricao = listOf("Pão com gergelim", "Hambúrguer de carne", "Queijo prato", "Alface", "Tomate", "Cebola", "Ketchup", "Maionese")
                     for (i in 1..quant) {
                         val item = ItemCarrinho("X-salada", 1, 12.00 * quant, descricao)
                         val codigo = Random.nextInt(100, 199)
@@ -55,15 +36,12 @@ class Carrinho {
                     }
                     break
                 }
-
                 else -> {
-                    println("Opção inválida. Digite novamente lanche")
-
+                    println("Opção inválida. Digite novamente.")
                 }
             }
         }
     }
-
     fun exibirMenuBebidas() {
         println("=== BEBIDAS ===")
         println("1. Refrigerante - R$ 8,00")
@@ -82,10 +60,9 @@ class Carrinho {
                     }
                     break
                 }
-
                 2 -> {
                     val quant = readIntInput("Quantos suco você deseja:")
-                    val descricao = listOf<String>("null")
+                    val descricao = listOf("null")
                     for (i in 1..quant) {
                         val item = ItemCarrinho("Suco", 1, 6.00, descricao)
                         val codigo = Random.nextInt(200, 300)
@@ -93,14 +70,12 @@ class Carrinho {
                     }
                     break
                 }
-
                 else -> {
-                    println("Opção inválida.Digite novamente bebida.")
+                    println("Opção inválida.Digite novamente.")
                 }
             }
         }
     }
-
     fun exibirOpcoesFinais() {
         println("=== OPÇÕES FINAIS ===")
         println("1. Comprar mais itens")
@@ -114,32 +89,27 @@ class Carrinho {
                 1 -> {
                     return
                 }
-
                 2 -> {
                     editarItemNoCarrinho()
                     exibirOpcoesFinais()
                     break
                 }
-
                 3 -> {
                     removerItemDoCarrinho()
                     exibirCarrinho()
                     exibirOpcoesFinais()
                     break
                 }
-
                 4 -> {
                     finalizarPedido()
                     break
                 }
-
                 else -> {
-                    println("Opção inválida. Digite novamente final.")
+                    println("Opção inválida. Digite novamente.")
                 }
             }
         }
     }
-
     fun exibirCarrinho() {
         println("======================== NOTA FISCAL ========================")
         println("Data/Hora: ${SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Date())}")
@@ -147,14 +117,7 @@ class Carrinho {
 
         for ((codigo, item) in carrinho) {
             println("Código do lanche: $codigo")
-            println(
-                "Nome: ${item.nome} | Quantidade: ${item.quantidade} | Valor Unitário: R$ ${
-                    String.format(
-                        "%.2f",
-                        item.valor
-                    )
-                }"
-            )
+            println("Nome: ${item.nome} | Quantidade: ${item.quantidade} | Valor Unitário: R$ ${String.format("%.2f", item.valor)}")
             println("Descrição: ${item.descricao}")
             println("-------------------------------------------------------------")
         }
@@ -162,7 +125,6 @@ class Carrinho {
         println("Valor total da compra: R$ ${String.format("%.2f", totalCompra)}")
         println("=============================================================")
     }
-
     fun removerItemDoCarrinho() {
         println("=== REMOVER ITEM ===")
         println("Itens no carrinho:")
@@ -180,7 +142,6 @@ class Carrinho {
             }
         }
     }
-
     fun finalizarPedido() {
 
         println("=== FINALIZAR PEDIDO ===")
@@ -222,12 +183,12 @@ class Carrinho {
                                 println("Troco: R$ $troco")
                             }
                             carrinho.clear()
-                            pagouValorSuficiente = true // Sai do loop
+                            pagouValorSuficiente = true
                         } else {
                             println("Valor insuficiente. Digite novamente o valor do dinheiro:")
                         }
                     } else {
-                        println("valor invalido.Digite novamente")
+                        println("Valor invalido.Digite novamente")
                     }
                 }
             }
@@ -237,7 +198,6 @@ class Carrinho {
             }
         }
     }
-
     fun editarItemNoCarrinho() {
         println("=== EDITAR ITEM ===")
         println("Itens no carrinho:")
@@ -251,7 +211,6 @@ class Carrinho {
             println("Código de item inválido ou item não encontrado.")
             return
         }
-
         println("Descrição atual do item: ${itemSelecionado.descricao}")
         println("Escolha uma opção:")
         println("1. Adicionar ingredientes")
@@ -285,11 +244,7 @@ class Carrinho {
                         val (nomeAdicional, precoAdicional) = adicionalSelecionado
                         itemSelecionado.descricao = itemSelecionado.descricao + listOf(nomeAdicional)
                         itemSelecionado.valor += precoAdicional
-                        println(
-                            "$nomeAdicional adicionado ao item com sucesso! Preço adicional: R$ ${
-                                String.format("%.2f", precoAdicional)
-                            }"
-                        )
+                        println("$nomeAdicional adicionado ao item com sucesso! Preço adicional: R$ ${String.format("%.2f", precoAdicional)}")
                         return
                     }
             }
@@ -314,16 +269,14 @@ class Carrinho {
                 println("$ingredienteRemovido removido do item com sucesso!")
             }
             else -> {
-                println("Opção inválida.Digite novamente pp")
+                println("Opção inválida.Digite novamente")
             }
         }
     }
-
     fun readIntInput(prompt: String): Int {
         while (true) {
             print(prompt)
             val input = readlnOrNull()
-
             try {
                 if (input != null) {
                     return input.toInt()
