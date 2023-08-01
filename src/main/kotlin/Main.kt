@@ -17,7 +17,6 @@ fun main() {
             when (opcao) {
                 1 -> {
                     carrinho.exibirMenuLanches()
-                    carrinho.exibirCarrinho()
                     carrinho.exibirOpcoesFinais()
                 }
                 2 -> {

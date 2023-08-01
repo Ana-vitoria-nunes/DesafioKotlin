@@ -7,31 +7,44 @@ class Carrinho {
 
     val carrinho = mutableMapOf<Int, ItemCarrinho>()
     fun exibirMenuLanches() {
-
         println("=== LANCHES ===")
         println("1. X-burger - R$ 10,00")
         println("2. X-salada - R$ 12,00")
-        print("Escolha o lanche desejado: ")
 
         while (true) {
-            val adicionar = readln().toIntOrNull()
+            val adicionar = readIntInput("Escolha o lanche desejado: ")?.takeIf { it in 1..2 } ?: continue
             when (adicionar) {
                 1 -> {
-                    val quant =readIntInput("Quantos X-burger você deseja:")
-                    val descricao = listOf("Pão com gergelim", "Hambúrguer de carne", "Queijo cheddar", "Bacon", "Alface", "Tomate", "Cebola", "Molho especial")
+                    val quant = readIntInput("Quantos X-burger você deseja:")
+                    val descricao = listOf(
+                        "Pão com gergelim", "Hambúrguer de carne", "Queijo cheddar",
+                        "Bacon", "Alface", "Tomate", "Cebola", "Molho especial")
+
                     for (i in 1..quant) {
-                        val item = ItemCarrinho("X-burger", 1, 10.00, descricao)
-                        val codigo = Random.nextInt(100, 199)
+                        var codigo: Int
+                        do {
+                            codigo = Random.nextInt(1, 1000)
+                        } while (codigo in carrinho)
+
+                        val item = ItemCarrinho("X-burger", 1, 10.0, descricao)
                         carrinho[codigo] = item
                     }
                     break
                 }
                 2 -> {
                     val quant = readIntInput("Quantos X-salada você deseja:")
-                    val descricao = listOf("Pão com gergelim", "Hambúrguer de carne", "Queijo prato", "Alface", "Tomate", "Cebola", "Ketchup", "Maionese")
+                    val descricao = listOf(
+                        "Pão com gergelim", "Hambúrguer de carne", "Queijo prato",
+                        "Alface", "Tomate", "Cebola", "Ketchup", "Maionese"
+                    )
+
                     for (i in 1..quant) {
-                        val item = ItemCarrinho("X-salada", 1, 12.00 * quant, descricao)
-                        val codigo = Random.nextInt(100, 199)
+                        var codigo: Int
+                        do {
+                            codigo = Random.nextInt(1001, 2000)
+                        } while (codigo in carrinho)
+
+                        val item = ItemCarrinho("X-salada", 1, 12.0, descricao)
                         carrinho[codigo] = item
                     }
                     break
@@ -41,21 +54,27 @@ class Carrinho {
                 }
             }
         }
+
+        exibirCarrinho()
     }
     fun exibirMenuBebidas() {
         println("=== BEBIDAS ===")
         println("1. Refrigerante - R$ 8,00")
         println("2. Suco - R$ 6,00")
-        print("Escolha a bebida desejada: ")
+
         while (true) {
-            val adicionar = readln().toIntOrNull()
+            val adicionar = readIntInput("Escolha a bebida desejada: ")?.takeIf { it in 1..2 }
             when (adicionar) {
                 1 -> {
                     val quant = readIntInput("Quantos refrigerante você deseja:")
                     val descricao = listOf("null")
                     for (i in 1..quant) {
-                        val item = ItemCarrinho("Refrigerante", 1, 8.00 * quant, descricao)
-                        val codigo = Random.nextInt(200, 300)
+                        var codigo: Int
+                        do {
+                             codigo = Random.nextInt(3000, 4000)
+                        } while (codigo in carrinho)
+
+                        val item = ItemCarrinho("Refrigerante", 1, 8.0, descricao)
                         carrinho[codigo] = item
                     }
                     break
@@ -64,8 +83,11 @@ class Carrinho {
                     val quant = readIntInput("Quantos suco você deseja:")
                     val descricao = listOf("null")
                     for (i in 1..quant) {
-                        val item = ItemCarrinho("Suco", 1, 6.00, descricao)
-                        val codigo = Random.nextInt(200, 300)
+                        var codigo: Int
+                        do {
+                            codigo = Random.nextInt(4001, 5000)
+                        } while (codigo in carrinho)
+                        val item = ItemCarrinho("Suco", 1, 6.0, descricao)
                         carrinho[codigo] = item
                     }
                     break
@@ -115,14 +137,16 @@ class Carrinho {
         println("Data/Hora: ${SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Date())}")
         println("=============================================================")
 
+        var totalCompra=0.0
         for ((codigo, item) in carrinho) {
-            println("Código do lanche: $codigo")
-            println("Nome: ${item.nome} | Quantidade: ${item.quantidade} | Valor Unitário: R$ ${String.format("%.2f", item.valor)}")
+            println("Código do produto: $codigo")
+            println("Nome: ${item.nome} | Quantidade: ${item.quantidade} | Valor Unitário: R$ ${item.valor}")
             println("Descrição: ${item.descricao}")
             println("-------------------------------------------------------------")
+           totalCompra +=item.valor
         }
-        val totalCompra = carrinho.values.sumOf { it.valor }
-        println("Valor total da compra: R$ ${String.format("%.2f", totalCompra)}")
+
+        println("Valor total da compra: R$ $totalCompra")
         println("=============================================================")
     }
     fun removerItemDoCarrinho() {
@@ -143,10 +167,8 @@ class Carrinho {
         }
     }
     fun finalizarPedido() {
-
+        exibirCarrinho()
         println("=== FINALIZAR PEDIDO ===")
-        println("Valor total do pedido: R$ ${carrinho.values.sumOf { it.valor }}")
-
         println("Formas de pagamento:")
         println("1. Cartão de crédito")
         println("2. Cartão de débito")
@@ -239,7 +261,7 @@ class Carrinho {
                         println("Operação cancelada. O item não foi alterado.")
                         return
                     }
-                    val adicionalSelecionado = adicionais.entries.elementAtOrNull(opcaoAdicional!! - 1)
+                    val adicionalSelecionado = adicionais.entries.elementAtOrNull(opcaoAdicional - 1)
                     if (adicionalSelecionado != null) {
                         val (nomeAdicional, precoAdicional) = adicionalSelecionado
                         itemSelecionado.descricao = itemSelecionado.descricao + listOf(nomeAdicional)
@@ -288,4 +310,6 @@ class Carrinho {
             }
         }
     }
+
+
 }
