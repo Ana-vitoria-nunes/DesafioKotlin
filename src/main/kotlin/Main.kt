@@ -21,7 +21,7 @@ fun main() {
                 }
                 2 -> {
                     carrinho.exibirMenuBebidas()
-                    carrinho.exibirCarrinho()
+                    carrinho.exibirCarrinho ()
                     carrinho.exibirOpcoesFinais()
                 }
                 else -> {
