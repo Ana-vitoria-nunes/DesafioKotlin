@@ -2,7 +2,6 @@ package Menu
 
 import cart.InputUser.Companion.readIntInput
 import execution.ExecutionModificarProduto
-import execution.MenuLanche
 
 class MenuChangeIngredient:DisplayMenu {
     override fun exibirMenu(){

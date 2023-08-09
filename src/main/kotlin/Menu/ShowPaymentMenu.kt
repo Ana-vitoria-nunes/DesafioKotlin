@@ -2,7 +2,6 @@ package Menu
 
 import cart.InputUser.Companion.readIntInput
 import cart.ShowCart
-import execution.ExecutinOpcaoFinal
 import execution.ExecutionPagamento
 
 class ShowPaymentMenu :DisplayMenu{

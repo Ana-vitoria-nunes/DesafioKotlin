@@ -5,7 +5,7 @@ import Menu.ShowMainMenu
 import Menu.ShowPaymentMenu
 import cart.RemoveCartItem
 
-class ExecutinOpcaoFinal :MenuOption {
+class ExecutionOpcaoFinal :MenuOption {
 
     override fun execute(opcao: Int){
         when (opcao) {

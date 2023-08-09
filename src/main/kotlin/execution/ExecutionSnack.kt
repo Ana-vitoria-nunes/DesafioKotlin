@@ -4,7 +4,7 @@ import cart.InputUser.Companion.readIntInput
 import cart.ItemCarrinho
 import main
 import kotlin.random.Random
-class MenuLanche : MenuOption {
+class ExecutionSnack : MenuOption {
     override fun execute(opcao: Int){
         when (opcao) {
             1 -> {

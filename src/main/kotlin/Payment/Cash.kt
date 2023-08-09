@@ -9,7 +9,7 @@ class Cash : ProcessPayment {
     override fun payment(): String {
         val totalCompra = carrinho.values.sumOf { it.valor }
         while (true) {
-            val valorPago = readIntInput("Digite o valor em dinheiro:")
+            val valorPago = readDobleInput("Digite o valor em dinheiro:")
             val troco = valorPago - totalCompra
             if (troco >=0) {
                 return "Compra finalizada com sucesso! Boa refeição. Pagamento em dinheiro.Troco: R$ $troco"

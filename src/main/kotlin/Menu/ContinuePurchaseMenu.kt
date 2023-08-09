@@ -1,6 +1,6 @@
 package Menu
 import cart.InputUser.Companion.readIntInput
-import execution.ExecutinOpcaoFinal
+import execution.ExecutionOpcaoFinal
 
 class ContinuePurchaseMenu : DisplayMenu {
     override fun exibirMenu() {
@@ -9,6 +9,6 @@ class ContinuePurchaseMenu : DisplayMenu {
         println("2. Editar item")
         println("3. Remover item")
         println("4. Finalizar pedido")
-        return ExecutinOpcaoFinal().execute(readIntInput("Qual você deseja final:"))
+        return ExecutionOpcaoFinal().execute(readIntInput("Qual você deseja final:"))
     }
 }
